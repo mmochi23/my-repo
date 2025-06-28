@@ -4,7 +4,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     permissions:
-      pull_requests: write # PRへの書き込み権限を付与する
+      pull-requests: write # PRへの書き込み権限を付与する
       contents: read # permissionsを設定すると暗黙的に付与されていたcontents:readがはずれるため付与する
     steps:
       - uses: actions/checkout@v4
