@@ -14,10 +14,15 @@ jobs:
       BRANCH: main
       ACTOR: ${{ github.actor }}
       HEAD_REF: ${{ github.head_ref }}
+      USERNAME: ${{ vars.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
     steps:
       - run: echo "${{ inputs.greeting }}"
       - run: echo "${ACTOR} ${HEAD_REF}"
       - run: echo "${BRANCH}"
+      - run: echo "${USERNAME}"
+      - run: echo "${PASSWORD}"
+      - run: echo "${PASSWORD:0:1} ${PASSWORD#?}"
       - uses: actions/checkout@v4
         with:
           ref: ${{ env.BRANCH }}
