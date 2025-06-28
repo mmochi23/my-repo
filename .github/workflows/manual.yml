@@ -12,9 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BRANCH: main
+      ACTOR: ${{ github.actor }}
+      HEAD_REF: ${{ github.head_ref }}
     steps:
       - run: echo "${{ inputs.greeting }}"
-      - run: echo "${{ github.head_ref }} ${{ github.action_ref }}"
+      - run: echo "${ACTOR} ${HEAD_REF}"
       - run: echo "${BRANCH}"
       - uses: actions/checkout@v4
         with:
