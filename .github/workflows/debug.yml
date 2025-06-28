@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        set -x
-        date
-        hostname
-        echo "::debug::This is a debug log"
+          set -x
+          date
+          hostname
+          echo "::debug::This is a debug log"
