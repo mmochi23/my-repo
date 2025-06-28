@@ -1,0 +1,10 @@
+name: Conditions
+on: workflow_dispatch
+jobs:
+  success-or-failure:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1
+        if: ${{ github.run_id % 2 == 0 }} # 偶数の run_id の場合に実行
+      - run: echo "Failure"
+        if: ${{ failure() }} # 前のステップが失敗した場合に実行
