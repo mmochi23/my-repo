@@ -10,5 +10,12 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    env:
+      BRANCH: main
     steps:
       - run: echo "${{ inputs.greeting }}"
+      - run: echo "${{ github.head_ref }} ${{ github.action_ref }}"
+      - run: echo "${BRANCH}"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
