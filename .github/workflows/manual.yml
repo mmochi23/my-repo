@@ -23,6 +23,8 @@ jobs:
       - run: echo "${USERNAME}"
       - run: echo "${PASSWORD}"
       - run: echo "${PASSWORD:0:1} ${PASSWORD#?}"
+      - run: echo "${{ github.event }}"
+      - run: echo "${{ github.event.*.html_url }}"
       - uses: actions/checkout@v4
         with:
           ref: ${{ env.BRANCH }}
