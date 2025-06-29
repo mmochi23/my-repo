@@ -1,0 +1,18 @@
+name: Debug log
+on: push
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          set -x
+          date
+          hostname
+          echo "::debug::This is a debug log"
+      - run: echo "::error::This is an error"
+      - run: echo "::warning::This is a warning"
+      - run: echo "::notice::This is a notice"
+      - run: |
+          echo "## Example Title :rocket:" >> "$GITHUB_STEP_SUMMARY"
+          echo "- first line" >> "$GITHUB_STEP_SUMMARY"
+          echo "- second line" >> "$GITHUB_STEP_SUMMARY"

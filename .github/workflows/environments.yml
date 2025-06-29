@@ -1,0 +1,17 @@
+name: Environments
+on:
+  workflow_dispatch:
+    inputs:
+      environment-name:
+        type: environment
+        required: true
+        default: development
+        description: 'Select the environment to run the workflow in'
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment-name }}
+    env:
+      USERNAME: ${{ vars.USERNAME }}
+    steps:
+      - run: echo "${USERNAME}"
