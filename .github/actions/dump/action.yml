@@ -21,6 +21,8 @@ runs:
       env:
         CONTEXT: ${{ toJson(github) }}
       shell: bash
+    - run: chmod +x "${GITHUB_ACTION_PATH}script.sh"
+      shell: bash
     - run: "${GITHUB_ACTION_PATH}script.sh"
       shell: bash
     - id: current
