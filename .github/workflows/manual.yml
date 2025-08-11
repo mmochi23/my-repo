@@ -24,6 +24,6 @@ jobs:
       - run: echo "${PASSWORD:0:1} ${PASSWORD#?}"
       - run: echo "${{ toJSON(github.event) }}"
       - run: echo "${{ toJSON(github.event.*.html_url) }}"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ env.BRANCH }}
